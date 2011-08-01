@@ -59,7 +59,7 @@ module Cucumber
         end
       end
 
-      def print_stats(features, options)
+      def print_stats(features, options = @options)
         @failures = step_mother.scenarios(:failed).select { |s| s.is_a?(Cucumber::Ast::Scenario) || s.is_a?(Cucumber::Ast::OutlineTable::ExampleRow) }
         @failures.collect! { |s| (s.is_a?(Cucumber::Ast::OutlineTable::ExampleRow)) ? s.scenario_outline : s }
 
